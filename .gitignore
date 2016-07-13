@@ -1,2 +1,5 @@
 .idea/*
 .db.sqllite3
+*.pyc
+*.jpg
+/__pycache__/
