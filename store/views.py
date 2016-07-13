@@ -45,5 +45,9 @@ def search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             content = form.cleaned_data['content']
-            print('content ', content)
+            clo_list = Product.objects.filter(name__contains=content)
+            clo_list = get_page(request, clo_list)
+            categories = Category.objects.filter(parent=None)
+            search_form = SearchForm()
+            return render(request, "index.html", locals())
     return HttpResponseRedirect('/')
