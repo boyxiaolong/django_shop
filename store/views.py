@@ -51,7 +51,6 @@ def search(request):
         clo = Product.objects.get(pk=s.pk)
         if clo:
             clo_list.append(clo)
-        print('pk ', s.pk, clo)
     clo_list = get_page(request, clo_list)
     categories = Category.objects.filter(parent=None)
 
